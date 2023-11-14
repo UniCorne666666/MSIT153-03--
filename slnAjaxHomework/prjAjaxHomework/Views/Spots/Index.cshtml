@@ -1,0 +1,60 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Homework1</h1>
+<div id="ViewCard" class="card mb-3" style="max-width: 540px;">
+    <div class="row g-0">
+        <div class="col-md-4">
+            <img src="..." class="img-fluid rounded-start" alt="..." >
+        </div>
+        <div class="col-md-8">
+            <div class="card-body">
+                <h5 class="card-title" id="SpotTitle">Card title</h5>
+                <p class="card-text" id="SpotBody">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                <p class="card-text"><small class="text-muted" id="SpotAddress">Last updated 3 mins ago</small></p>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts
+{
+    <script src="~/datas/travel.js"></script>
+
+    <script>
+    console.log(spots)
+
+    const datas = spots.CommonFormat.Section.map
+    (spot => 
+        { 
+        const {stitle , xbody , address ,file} = spot;
+        var imgSrc = file&&file.img&&file.img[0]&&file.img[0].text;
+
+                return (
+                    `<div id= "ViewCard" class="card mb-3" style = "max-width: 540px;" >
+                    <div class="row g-0" >
+                        <div class="col-md-4" >
+                                    <img src="${imgSrc}" class="img-fluid rounded-start" alt = "..." >
+                                </div>
+                                <div class="col-md-8" >
+                  <div class="card-body" >
+                  <h5 class="card-title" id = "SpotTitle" > ${stitle} </h5>
+                  <p class="card-text" id = "SpotBody" >${xbody}</p>
+                 <p class="card-text" > <small class="text-muted" id = "SpotAddress" >${address}</small></p>
+                             </div>
+                             </div>
+                             </div>
+                             </div>`)
+})
+document.querySelector('#ViewCard').innerHTML=datas.join("");
+    
+
+
+
+               
+    </script>
+
+       
+}
