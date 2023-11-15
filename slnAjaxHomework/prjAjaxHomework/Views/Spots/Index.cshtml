@@ -7,7 +7,7 @@
 <div id="ViewCard" class="card mb-3" style="max-width: 540px;">
     <div class="row g-0">
         <div class="col-md-4">
-            <img src="..." class="img-fluid rounded-start" alt="..." >
+            <img src="..." class="img-fluid rounded-start" alt="..."  >
         </div>
         <div class="col-md-8">
             <div class="card-body">
@@ -31,17 +31,17 @@
         { 
         const {stitle , xbody , address ,file} = spot;
         var imgSrc = file&&file.img&&file.img[0]&&file.img[0].text;
-
+        var context = xbody.substring(0,500)
                 return (
                     `<div id= "ViewCard" class="card mb-3" style = "max-width: 540px;" >
                     <div class="row g-0" >
                         <div class="col-md-4" >
-                                    <img src="${imgSrc}" class="img-fluid rounded-start" alt = "..." >
+                                            <img src="${imgSrc}" class="img-fluid rounded-start" alt = "無圖片" >
                                 </div>
                                 <div class="col-md-8" >
                   <div class="card-body" >
                   <h5 class="card-title" id = "SpotTitle" > ${stitle} </h5>
-                  <p class="card-text" id = "SpotBody" >${xbody}</p>
+                  <p class="card-text" id = "SpotBody" >${context}</p>
                  <p class="card-text" > <small class="text-muted" id = "SpotAddress" >${address}</small></p>
                              </div>
                              </div>
